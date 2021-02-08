@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
 import RegistrationForm from '../components/Forms/RegistrationForm';
-import Styles from './login.module.css';
+import Styles from './forms.module.scss';
 
 const RegistrationPage = () => {
   return (
     <div className={Styles.background}>
       <Container className="d-flex flex-column justify-content-center h-100 py-3">
         <Row className={`justify-content-center ${Styles.formBody}`}>
-          <Col xs={10} sm={8} md={7} lg={5} xl={5}>
+          <Col xs={10} sm={9} md={7} lg={5} xl={5}>
             <div className={Styles.rounded}>
               <div className="card-body">
                 <div className="mb-4">
@@ -24,7 +24,7 @@ const RegistrationPage = () => {
                     </Link>
                   </div>
                   <Row className="justify-content-center">
-                    <Col xs={11} sm={11} md={11} lg={11}>
+                    <Col xs={11} sm={10} md={10} lg={10}>
                       <RegistrationForm />
                     </Col>
                   </Row>

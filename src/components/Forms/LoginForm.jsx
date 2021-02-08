@@ -6,12 +6,11 @@ import {
   FormText,
   FormFeedback,
   Input,
-  Row
 } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 export default class LoginForm extends Component {
-  static displayName = LoginForm.name; 
+  static displayName = LoginForm.name;
   constructor(props) {
     super(props);
 
@@ -22,15 +21,18 @@ export default class LoginForm extends Component {
       validate: {
         emailState: '',
         isValid: false,
+        password: '',
+        isValidPassword: false,
       },
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange = event => {
-    const { target } = event;
+    const {
+      target: { name, value },
+    } = event;
     const { validate } = this.state;
-    const { name, value } = target;
     if (!value) {
       validate.emailState = '';
       validate.isValid = false;
@@ -57,9 +59,26 @@ export default class LoginForm extends Component {
     this.setState({ validate });
   }
 
+  validatePassword() {
+    const defPassword = '12345678';
+    const { password, validate } = this.state;
+    if (password === defPassword) {
+      validate.isValidPassword = true;
+      validate.password = 'has-success';
+    } else validate.password = 'has-danger';
+    this.setState({ validate });
+  }
+
   handleSubmit = e => {
     e.preventDefault();
     this.validateEmail();
+    this.validatePassword();
+    const {
+      validate: { isValid, isValidPassword },
+    } = this.state;
+    if (isValid && isValidPassword) {
+      <Redirect from="/login" to="/admin" />;
+    }
   };
 
   render() {
@@ -98,15 +117,18 @@ export default class LoginForm extends Component {
               placeholder="Password"
               required
               value={password}
-              // valid={validate.password === 'has-success'}
-              // invalid={validate.password === 'has-danger'}
+              valid={validate.password === 'has-success'}
+              invalid={validate.password === 'has-danger'}
               onChange={e => this.handleChange(e)}
             />
-            <FormFeedback invalid>Invalid Password</FormFeedback>
+            <FormFeedback>Invalid Password</FormFeedback>
           </FormGroup>
-          <Row className="mt-4 px-3">
-            <Button color="primary">SIGN IN</Button>
-          </Row>
+
+          <FormGroup>
+            <Button className="mt-4" color="primary" block>
+              SIGN IN
+            </Button>
+          </FormGroup>
         </Form>
         <div className="d-grid gap-2 mt-4 text-center">
           <Link to="/resetPassword">Forgot password?</Link>

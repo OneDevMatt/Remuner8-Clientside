@@ -18,16 +18,16 @@ a {
   cursor: pointer;
   transition: color 0.3s ease 0s;
 }
- 
+
 a:hover {
-  color: rgb(105, 157, 255);
+  color: #699dff;
 }
 
 a:active {
-  color: rgb(42, 89, 209);
+  color: #2a59d1;
 }
-a:active,
-a:hover {
+
+a:active, a:hover {
   text-decoration: none;
   outline: 0px;
 }
@@ -36,13 +36,6 @@ html,
 body {
   min-height: 100%;
   width: 100%;
-}
-
-.btn-primary {
-  /* color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-  background-color: royalblue; */
 }
 
 .App {

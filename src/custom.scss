@@ -1,0 +1,48 @@
+/* Provide sufficient contrast against white background */
+
+@mixin centerEverything {
+  display: grid;
+  place-items: center;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  color: #fff;
+  background: royalblue;
+}
+
+a {
+  color: #0366d6;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease 0s;
+  &:hover {
+    color: rgb(105, 157, 255);
+  }
+  &:active {
+    color: rgb(42, 89, 209);
+  }
+  &:active,
+  &:hover {
+    text-decoration: none;
+    outline: 0px;
+  }
+}
+
+html,
+body {
+  min-height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+.App {
+  height: 100vh;
+}

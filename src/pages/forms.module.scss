@@ -1,0 +1,27 @@
+$selectionColor: rgb(62, 121, 247);
+$white: rgb(255, 255, 255);
+$background: '/assets/img/loginBackgroundImg.jpg';
+@import '../custom';
+
+.background {
+  background-image: url($background);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  @include centerEverything();
+}
+
+.formBody::selection {
+  color: $white;
+  background: $selectionColor;
+}
+
+.rounded {
+  border-radius: 1rem;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 14px;
+  line-height: 1.5715;
+  list-style: none;
+  position: relative;
+  background: $white;
+}

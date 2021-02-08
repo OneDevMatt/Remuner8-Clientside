@@ -2,17 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
 import LoginForm from '../components/Forms/LoginForm';
-import LoginStyles from './login.module.css';
-
-// Render register component if sign up is clicked
+import Styles from './forms.module.scss';
 
 const Login = () => {
   return (
-    <div className={LoginStyles.background}>
+    <div className={Styles.background}>
       <Container className="d-flex flex-column justify-content-center h-100">
-        <Row className={`justify-content-center  ${LoginStyles.formBody}`}>
-          <Col xs={10} sm={10} md={7} lg={5} xl={4}>
-            <div className={LoginStyles.rounded}>
+        <Row className={`justify-content-center  ${Styles.formBody}`}>
+          <Col xs={10} sm={9} md={7} lg={5} xl={5}>
+            <div className={Styles.rounded}>
               <div className="card-body">
                 <div className="mb-4">
                   <div className="text-center">
