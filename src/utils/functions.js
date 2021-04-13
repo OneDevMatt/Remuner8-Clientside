@@ -2,21 +2,15 @@ export const getRandomTime = () => {
   const today = new Date();
   const backendTime = today.toLocaleTimeString('en-GB');
   const userTime = today.toLocaleTimeString();
-
+  console.log(userTime - backendTime);
   return { userTime, backendTime };
 };
 
-export const randomDate = (start, end) =>
-  new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+export const randomDate = (start, end) => new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 
-export const secondsToHms = d => {
-  d = Number(d);
-  var h = Math.floor(d / 3600);
-  var m = Math.floor((d % 3600) / 60);
-  var s = Math.floor((d % 3600) % 60);
+export const secondsToHours = time => {
+  const seconds = Number(time);
+  const hours = Math.floor(seconds / 3600);
 
-  var hDisplay = h > 0 ? h + (h === 1 ? ' hour, ' : ' hours, ') : '';
-  var mDisplay = m > 0 ? m + (m === 1 ? ' minute, ' : ' minutes, ') : '';
-  var sDisplay = s > 0 ? s + (s === 1 ? ' second' : ' seconds') : '';
-  return hDisplay + mDisplay + sDisplay;
+  return hours;
 };

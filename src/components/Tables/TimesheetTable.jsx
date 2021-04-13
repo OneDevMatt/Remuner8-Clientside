@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
 
 import { paginate } from 'utils/paginate';
-import { getRandomTime } from 'utils/functions'
+import { getRandomTime, randomDate, secondsToHours } from 'utils/functions';
 
 import Table from 'components/Tables/Table';
 import TableInfo from 'components/Tables/TableInfo';
 import Pagination from 'components/Tables/Pagination';
 import ActionToggle from 'components/Custom-Buttons/ActionToggle';
+
+const time = getRandomTime();
+const now = new Date();
+const yesterday = new Date(2021, 3, 12);
+const randomDay = randomDate(this.yesterday, this.now);
 
 class TimesheetTable extends Component {
   constructor(props) {
@@ -21,13 +26,11 @@ class TimesheetTable extends Component {
     };
   }
 
-  time = getRandomTime();
-
   columns = [
     { path: 'id', label: '#' },
     { path: 'employee', label: 'Employee' },
-    { label: 'Time In', key: 'timeIn', content: () => this.time.userTime },
-    { label: 'Time Out', key: 'timeOut', content: () => this.time.userTime },
+    { label: 'Time In', key: 'timeIn', content: () => time.userTime },
+    { label: 'Time Out', key: 'timeOut', content: () => time.userTime },
     { label: 'Hours Worked', key: 'hours', content: () => <Col>Hi</Col> },
     {
       key: 'Action',
