@@ -2,7 +2,7 @@ export const getRandomTime = () => {
   const today = new Date();
   const backendTime = today.toLocaleTimeString('en-GB');
   const userTime = today.toLocaleTimeString();
-  console.log(userTime - backendTime);
+  
   return { userTime, backendTime };
 };
 
