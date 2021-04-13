@@ -3,14 +3,12 @@ import { Col } from 'reactstrap';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import styled, { css } from 'styled-components';
-import SelectTableLength from './SelectTableLength';
 
 const Pagination = ({
   itemsCount,
   pageSize,
   onPageChange,
   currentPage,
-  onPageSizeChange,
   onPrevious,
   onNext
 }) => {
@@ -65,7 +63,6 @@ const Pagination = ({
           </ul>
         </nav>
       </div>
-      <SelectTableLength togglePageSize={onPageSizeChange} />
     </Col>
   );
 };

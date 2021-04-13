@@ -7,6 +7,7 @@ import Table from 'components/Tables/Table';
 import TableInfo from 'components/Tables/TableInfo';
 import Pagination from 'components/Tables/Pagination';
 import ActionToggle from 'components/Custom-Buttons/ActionToggle';
+import SelectTableLength from './SelectTableLength';
 
 export default class JobDescriptionTable extends Component {
   state = {
@@ -78,6 +79,7 @@ export default class JobDescriptionTable extends Component {
             onNext={this.handleNext}
             onPrevious={this.handlePrevious}
           />
+          <SelectTableLength togglePageSize={this.handlePageSizeChange} />
         </Row>
       </div>
     );
