@@ -28,7 +28,7 @@ const EmptyForm = ({ employees }) => {
           <label for="timeOut">
             Time Out<span className="text-danger">*</span>
           </label>
-          <Input type="number" name="timeOuts" />
+          <Input type="number" name="timeOut" />
         </FormGroup>
       </Col>
 
