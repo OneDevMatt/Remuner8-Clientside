@@ -3,18 +3,18 @@ import styled from 'styled-components';
 import { Col, Row } from 'reactstrap';
 import { Link, withRouter } from 'react-router-dom';
 
-const Header = ({ children, match, button }) => {
+const Header = ({ children, match, button, breadcrumb }) => {
   const title = match.url.slice(7);
   return (
     <div className="page-header px-lg-4">
       <Row className="align-items-center pr-md-4 mt-md--4">
         <Col sm={6} md={6}>
-          <h3 className="page-title text-capitalize">{title}</h3>
+          <h3 className="page-title text-capitalize">{breadcrumb || title}</h3>
           <ul className="breadcrumb">
             <li className="breadcrumb-item">
               <BreadcrumbItem to="/admin">Dashboard</BreadcrumbItem>
             </li>
-            <li className="breadcrumb-item active text-capitalize">{title}</li>
+            <li className="breadcrumb-item active text-capitalize">{breadcrumb || title}</li>
           </ul>
         </Col>
         <ButtonsContainer>

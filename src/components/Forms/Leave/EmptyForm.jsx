@@ -6,7 +6,7 @@ import SelectBox from '../SelectBox';
 const EmptyForm = ({ leaveTypes }) => {
   return (
     <>
-      <Col xs= {12}>
+      <Col xs={12}>
         <FormGroup>
           <label className="col-form-label">
             Leave Type <span className="text-danger">*</span>
@@ -14,13 +14,13 @@ const EmptyForm = ({ leaveTypes }) => {
           <SelectBox options={leaveTypes} />
         </FormGroup>
       </Col>
-      
-      <Col xs= {12}>
+
+      <Col xs={12}>
         <FormGroup>
           <label for="from">
             From <span className="text-danger">*</span>
           </label>
-          <DatePicker name= "from" />
+          <DatePicker name="from" />
         </FormGroup>
       </Col>
       <Col xs={12}>
@@ -28,7 +28,7 @@ const EmptyForm = ({ leaveTypes }) => {
           <label for="to">
             To <span className="text-danger">*</span>
           </label>
-          <DatePicker name = "to" />
+          <DatePicker name="to" />
         </FormGroup>
       </Col>
       <Col xs={12}>

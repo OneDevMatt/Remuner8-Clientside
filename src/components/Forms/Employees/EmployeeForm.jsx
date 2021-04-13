@@ -10,7 +10,6 @@ const departmentOptions = [
   'Software Eng',
   'IT Management',
   'Marketing',
-  'Option 4'
 ];
 
 const jobOptions = [
@@ -43,7 +42,10 @@ const EmployeeForm = ({ data, toggle, readOnly }) => {
 
             <Col sm={6}>
               <FormGroup>
-                <label className="col-form-label">Last Name</label>
+                <label className="col-form-label">
+                  Last Name
+                  <span className="text-danger">*</span>
+                </label>
                 <Input type="text" defaultValue={employee.name} required />
               </FormGroup>
             </Col>
@@ -77,7 +79,7 @@ const EmployeeForm = ({ data, toggle, readOnly }) => {
                   Date Joined <span className="text-danger">*</span>
                 </label>
                 <div className="cal-icon">
-                 <DatePicker date={employee.join_date} />
+                  <DatePicker date={employee.join_date} required />
                 </div>
               </FormGroup>
             </Col>
@@ -85,7 +87,7 @@ const EmployeeForm = ({ data, toggle, readOnly }) => {
             <Col sm={6}>
               <FormGroup>
                 <label className="col-form-label">Phone </label>
-                <Input type="tel" defaultValue={employee.phone_number} />
+                <Input type="tel" defaultValue={employee.phone_number} required/>
               </FormGroup>
             </Col>
 
@@ -98,6 +100,7 @@ const EmployeeForm = ({ data, toggle, readOnly }) => {
                   label="Select Department"
                   options={departmentOptions}
                   defaultValue={employee.department}
+                  required
                 />
               </FormGroup>
             </Col>
@@ -111,6 +114,7 @@ const EmployeeForm = ({ data, toggle, readOnly }) => {
                   label="Select Job Description"
                   options={jobOptions}
                   defaultValue={employee.name}
+                  required
                 />
               </FormGroup>
             </Col>

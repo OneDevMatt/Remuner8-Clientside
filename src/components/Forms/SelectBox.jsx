@@ -54,7 +54,7 @@ const SelectBox = ({
   const { value, innerText, outerText } = state;
   return (
     <>
-      <Select tabIndex="-1" aria-hidden="true">
+      <Select tabIndex="-1" aria-hidden="true" {...props}>
         {options
           ? options.map((option, index) => (
               <option key={index}>{option}</option>

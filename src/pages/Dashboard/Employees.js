@@ -128,16 +128,15 @@ class Employees extends Component {
             <Redirect exact from="/admin/employees" to="/admin/employees/all" />
           </Switch>
         </div>
+        
         <CustomModal
           label="Add Employee"
           isOpen={addModalOpen}
           toggle={this.toggleAddModal}
         >
-          <EmployeeForm
-           // data={this.state.formData}
-            toggle={this.toggleAddModal}
-          />
+          <EmployeeForm toggle={this.toggleAddModal} />
         </CustomModal>
+
         <CustomModal
           label="Edit Employee"
           isOpen={editModalOpen}
@@ -149,6 +148,7 @@ class Employees extends Component {
             readOnly
           />
         </CustomModal>
+
         <DeleteModal
           isOpen={deleteModalOpen}
           toggle={this.toggleDeleteModal}

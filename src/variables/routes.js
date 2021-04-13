@@ -7,6 +7,7 @@ import Payroll from 'pages/Dashboard/Payroll';
 import Leaves from 'pages/Dashboard/Leaves';
 import Overtime from 'pages/Dashboard/Overtime';
 import Timesheet from 'pages/Dashboard/Timesheet';
+import JobDescription from 'pages/Dashboard/JobDescription'
 
 import Custom404 from 'pages/404';
 
@@ -49,7 +50,7 @@ const routes = [
       path: '/jobdescriptions',
       name: 'Job Descriptions',
       icon: 'fas fa-suitcase text-blue',
-      component: Custom404,
+      component: JobDescription,
       layout: '/admin'
     },
     // {
