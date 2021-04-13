@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
 
 import { paginate } from 'utils/paginate';
+import { getRandomTime } from 'utils/functions'
 
 import Table from 'components/Tables/Table';
 import TableInfo from 'components/Tables/TableInfo';
@@ -20,11 +21,13 @@ class TimesheetTable extends Component {
     };
   }
 
+  time = getRandomTime();
+
   columns = [
     { path: 'id', label: '#' },
     { path: 'employee', label: 'Employee' },
-    { label: 'Time In', key: 'timeIn', content: () => <Col>Hi</Col> },
-    { label: 'Time Out', key: 'timeOut', content: () => <Col>Hi</Col> },
+    { label: 'Time In', key: 'timeIn', content: () => this.time.userTime },
+    { label: 'Time Out', key: 'timeOut', content: () => this.time.userTime },
     { label: 'Hours Worked', key: 'hours', content: () => <Col>Hi</Col> },
     {
       key: 'Action',
