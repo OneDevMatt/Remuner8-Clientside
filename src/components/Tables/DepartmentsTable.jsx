@@ -7,6 +7,7 @@ import Table from 'components/Tables/Table';
 import TableInfo from 'components/Tables/TableInfo';
 import Pagination from 'components/Tables/Pagination';
 import ActionToggle from 'components/Custom-Buttons/ActionToggle';
+import SelectTableLength from './SelectTableLength';
 
 class DepartmentsTable extends Component {
   constructor(props) {
@@ -63,7 +64,7 @@ class DepartmentsTable extends Component {
       <div className="table-wrapper">
         <Table
           className="align-items-center my-3 table-hover"
-          columns={this.columns} 
+          columns={this.columns}
           headerData={data}
           bodyData={departments}
           sortColumn={sortColumn}
@@ -80,6 +81,7 @@ class DepartmentsTable extends Component {
             onNext={this.handleNext}
             onPrevious={this.handlePrevious}
           />
+          <SelectTableLength togglePageSize={this.handlePageSizeChange} />
         </Row>
       </div>
     );

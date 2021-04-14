@@ -9,6 +9,7 @@ import Table from 'components/Tables/Table';
 import TableInfo from 'components/Tables/TableInfo';
 import Pagination from 'components/Tables/Pagination';
 import ActionToggle from 'components/Custom-Buttons/ActionToggle';
+import SelectTableLength from './SelectTableLength';
 
 class EmployeeTable extends Component {
   constructor(props) {
@@ -91,7 +92,11 @@ class EmployeeTable extends Component {
           onSort={this.handleSort}
         />
         <Row className="align-items-baseline justify-content-lg-between mt-4">
-          <TableInfo start={start} end={totalCount < 10 ? totalCount : end} total={totalCount} />
+          <TableInfo
+            start={start}
+            end={totalCount < 10 ? totalCount : end}
+            total={totalCount}
+          />
           <Pagination
             itemsCount={totalCount}
             pageSize={pageSize}
@@ -101,6 +106,7 @@ class EmployeeTable extends Component {
             onPrevious={this.handlePrevious}
             onNext={this.handleNext}
           />
+          <SelectTableLength togglePageSize={this.handlePageSizeChange} />
         </Row>
       </div>
     );

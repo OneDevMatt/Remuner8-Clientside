@@ -25,12 +25,14 @@ const InputRow = () => {
         </FormGroup>
       </Col>
       <Col sm={6} md={5} lg={3} xl={3}>
+        <FormGroup>
         <SelectBox
           focusLabel="Leave Type"
           label="Select Leave Type"
           options={options}
           adjustLabel
         />
+        </FormGroup>
       </Col>
       <Col sm={6} md={5} lg={3} xl={3}>
         <FormGroup>

@@ -22,7 +22,7 @@ const Pagination = ({
     <Col
       sm={12}
       md={7}
-      className="pt-3 pt-sm-0 justify-content-around d-flex align-items-center"
+      className="pt-3 pt-sm-0 justify-content-around d-flex align-items-center mb-sm-3"
     >
       <div className="dataTables_paginate paging_simple_numbers ">
         <nav aria-label="Departments Page navigation">

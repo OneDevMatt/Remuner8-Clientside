@@ -2,7 +2,7 @@ import React from 'react';
 import { Col } from 'reactstrap';
 
 const SelectTableLength = ({ togglePageSize }) => (
-  <Col>
+  <Col className="justify-content-center text-center">
     <select
       className="w-auto mx-2 custom-select text-darker"
       onChange={e => togglePageSize(e.target.value)}

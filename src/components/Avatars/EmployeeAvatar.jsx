@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import DummyImage from 'assets/img/theme/team-1-800x800.jpg';
 
 const EmployeeAvatar = ({ employee }) => {
+  console.log(employee);
   return (
     <TableAvatar>
       <Avatar to="/admin/employees/profile">
@@ -12,7 +13,7 @@ const EmployeeAvatar = ({ employee }) => {
       </Avatar>
       <AvatarLink to="/admin/employees/profile">
         {employee.name || employee.employee}
-        <Job>{employee.name || employee.job}</Job>
+        <Job>{employee.name || employee.job || employee.employee}</Job>
       </AvatarLink>
     </TableAvatar>
   );

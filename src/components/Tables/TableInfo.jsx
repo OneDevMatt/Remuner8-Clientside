@@ -10,7 +10,7 @@ const TableInfo = ({ start, end, total }) => (
       aria-live="polite"
       style={{ color: '#1f1f1f' }}
     >
-      Showing {start} to {end} of {total} entries
+      Showing {start} to {end > total ? total : end} of {total} entries
     </div>
   </Col>
 );

@@ -9,6 +9,7 @@ import TableInfo from 'components/Tables/TableInfo';
 import Pagination from 'components/Tables/Pagination';
 import ActionToggle from 'components/Custom-Buttons/ActionToggle';
 import OvertimeStatusButton from 'components/Forms/OvertimeStatusButton';
+import SelectTableLength from './SelectTableLength';
 
 class OvertimeTable extends Component {
   constructor(props) {
@@ -109,6 +110,7 @@ class OvertimeTable extends Component {
             onPrevious={this.handlePrevious}
             onNext={this.handleNext}
           />
+          <SelectTableLength togglePageSize={this.handlePageSizeChange} />
         </Row>
       </div>
     );

@@ -1,6 +1,4 @@
-import React from "react";
-
-// reactstrap components
+import React from 'react';
 import {
   Button,
   Card,
@@ -11,10 +9,10 @@ import {
   Input,
   Container,
   Row,
-  Col,
-} from "reactstrap";
-// core components
-import UserHeader from "components/Headers/UserHeader.js";
+  Col
+} from 'reactstrap';
+
+import UserHeader from 'components/Headers/UserHeader.js';
 
 const AdminProfile = () => {
   return (
@@ -33,8 +31,7 @@ const AdminProfile = () => {
                   <Col className="text-right" xs="4">
                     <Button
                       color="primary"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
+                      onClick={e => e.preventDefault()}
                       size="sm"
                     >
                       Settings
@@ -197,22 +194,6 @@ const AdminProfile = () => {
                         </FormGroup>
                       </Col>
                     </Row>
-                  </div>
-                  <hr className="my-4" />
-                  {/* Description */}
-                  <h6 className="heading-small text-muted mb-4">About me</h6>
-                  <div className="pl-lg-4">
-                    <FormGroup>
-                      <label>About Me</label>
-                      <Input
-                        className="form-control-alternative"
-                        placeholder="A few words about you ..."
-                        rows="4"
-                        defaultValue="A beautiful Dashboard for Bootstrap 4. It is Free and
-                        Open Source."
-                        type="textarea"
-                      />
-                    </FormGroup>
                   </div>
                 </Form>
               </CardBody>

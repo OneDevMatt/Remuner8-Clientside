@@ -8,6 +8,8 @@ import Table from 'components/Tables/Table';
 import TableInfo from 'components/Tables/TableInfo';
 import Pagination from 'components/Tables/Pagination';
 import ActionToggle from 'components/Custom-Buttons/ActionToggle';
+import SelectTableLength from './SelectTableLength';
+import EmployeeAvatar from 'components/Avatars/EmployeeAvatar';
 
 const now = new Date();
 const yesterday = new Date(2021, 3, 13);
@@ -15,14 +17,14 @@ const randomDateTime = randomDate(yesterday, now);
 const differenceInSeconds = Math.floor((now - randomDateTime) / 1000);
 const hoursWorked = secondsToHours(differenceInSeconds);
 
-const randomDateTimeBackendTime = randomDateTime.toLocaleTimeString('en-GB');
-const nowBackendTime = now.toLocaleTimeString('en-GB');
-console.log({
-  now,
-  hoursWorked,
-  randomDateTimeBackendTime,
-  nowBackendTime
-});
+// const randomDateTimeBackendTime = randomDateTime.toLocaleTimeString('en-GB');
+// const nowBackendTime = now.toLocaleTimeString('en-GB');
+// console.log({
+//   now,
+//   hoursWorked,
+//   randomDateTimeBackendTime,
+//   nowBackendTime
+// });
 
 class TimesheetTable extends Component {
   constructor(props) {
@@ -38,15 +40,17 @@ class TimesheetTable extends Component {
 
   columns = [
     { path: 'id', label: '#' },
-    { path: 'employee', label: 'Employee' },
+    { path: 'employee', label: 'Employee', content: timesheet => <EmployeeAvatar employee={timesheet} /> },
     {
       label: 'Time In',
       key: 'timeIn',
+      path: 'timeIn',
       content: () => randomDate(yesterday, now).toLocaleTimeString()
     },
     {
       label: 'Time Out',
       key: 'timeOut',
+      path: 'timeOut',
       content: () => now.toLocaleTimeString()
     },
     { label: 'Hours Worked', key: 'hours', content: () => hoursWorked },
@@ -107,6 +111,7 @@ class TimesheetTable extends Component {
             onNext={this.handleNext}
             onPrevious={this.handlePrevious}
           />
+          <SelectTableLength togglePageSize={this.handlePageSizeChange} />
         </Row>
       </div>
     );

@@ -17,7 +17,7 @@ const Payslip = () => {
         <PayslipNav content={() => componentRef.current} />
         <PayslipBody ref={componentRef}>
           <Employee />
-          <Row>
+          <Row className="justify-content-between">
             <Earnings />
             <Deductions />
             <NetSalary />

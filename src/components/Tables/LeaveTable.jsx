@@ -9,6 +9,7 @@ import TableInfo from 'components/Tables/TableInfo';
 import Pagination from 'components/Tables/Pagination';
 import ActionToggle from 'components/Custom-Buttons/ActionToggle';
 import StatusDropDown from 'components/Forms/Leave/StatusDropdown';
+import SelectTableLength from './SelectTableLength';
 
 class LeaveTable extends Component {
   constructor(props) {
@@ -95,7 +96,7 @@ class LeaveTable extends Component {
           sortColumn={sortColumn}
           onSort={this.handleSort}
         />
-        <Row className="align-items-baseline justify-content-lg-between mt-2">
+        <Row className="align-items-baseline justify-content-lg-between mt-3">
           <TableInfo start={start} end={end} total={totalCount} />
           <Pagination
             itemsCount={totalCount}
@@ -106,6 +107,7 @@ class LeaveTable extends Component {
             onPrevious={this.handlePrevious}
             onNext={this.handleNext}
           />
+          <SelectTableLength togglePageSize={this.handlePageSizeChange} />
         </Row>
       </div>
     );
