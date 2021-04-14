@@ -11,6 +11,13 @@ const labelStyles = css`
 
 const getSpanSelectStyles = props => (props.open ? SpanSelectStyles : '');
 
+const getLineHeight = props =>
+  props.focusLabel
+    ? labelStyles
+    : css`
+        line-height: 40px;
+      `;
+
 export const Select = styled.select`
   border: 0;
   clip: rect(0 0 0 0);
@@ -23,6 +30,7 @@ export const Select = styled.select`
   white-space: nowrap;
   height: 50px;
   padding: 21px 12px 6px;
+  ${getLineHeight}
 `;
 
 export const SpanContainer = styled.span`
@@ -49,12 +57,6 @@ export const SpanSingleSelect = styled.span`
   ${getSpanSelectStyles}
 `;
 
-const getLineHeight = props =>
-  !props.focusLabel
-    ? labelStyles
-    : css`
-        line-height: 40px;
-      `;
 
 export const SpanSelectRendered = styled.span`
   overflow: hidden;
@@ -66,9 +68,9 @@ export const SpanSelectRendered = styled.span`
   color: #676767;
   font-size: 15px;
   font-weight: normal;
-  ${getLineHeight}
   user-select: none;
   cursor: pointer;
+  ${getLineHeight}
 `;
 
 export const SpanSelectArrow = styled.span`
@@ -180,9 +182,4 @@ export const FocusLabel = styled.label`
   top: -21px;
   font-size: 12px;
   z-index: 1;
-  ${props =>
-    props.adjustLabel &&
-    css`
-      left: 30px;
-    `}
 `;

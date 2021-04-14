@@ -18,9 +18,7 @@ import {
 const SelectBox = ({
   options,
   label,
-  focusLabel,
   defaultValue,
-  adjustLabel,
   ...props
 }) => {
   const [dropdownOpen, setDropdown] = useState(false);
@@ -82,7 +80,7 @@ const SelectBox = ({
               role="textbox"
               aria-readonly="true"
               value="ds"
-              //title="Select Department"
+              {...props}
             >
               {defaultValue ? defaultValue : value ? options[value] : label}
             </SpanSelectRendered>
@@ -120,8 +118,8 @@ const SelectBox = ({
           </SelectDropdown>
         </DropdownContainer>
       </SpanContainer>
-      <FocusLabel adjustLabel={adjustLabel} htmlFor="select-box">
-        {focusLabel}
+      <FocusLabel htmlFor="select-box">
+        {props.focusLabel}
       </FocusLabel>
     </>
   );

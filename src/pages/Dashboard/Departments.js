@@ -93,7 +93,6 @@ class Departments extends Component {
                   data={departments}
                   onEdit={this.handleEdit}
                   onDelete={this.toggleDeleteModal}
-                  setFormData={this.setFormData}
                 />
               )}
             </Col>

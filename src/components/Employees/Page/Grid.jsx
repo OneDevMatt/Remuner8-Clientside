@@ -5,9 +5,9 @@ import Card from './Card';
 import DummyImage from 'assets/img/theme/team-1-800x800.jpg';
 import LoaderRing from 'components/Loading/Loader';
 
-const Grid = ({ loading, employees, toggleEditModal, toggleDeleteModal }) => (
+const Grid = ({ employees, toggleEditModal, toggleDeleteModal }) => (
   <Row>
-    {loading && !employees ? (
+    {!employees ? (
       <LoaderRing />
     ) : (
       employees.map((employee, index) => (

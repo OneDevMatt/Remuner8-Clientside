@@ -86,8 +86,14 @@ const EmployeeForm = ({ data, toggle, readOnly }) => {
 
             <Col sm={6}>
               <FormGroup>
-                <label className="col-form-label">Phone </label>
-                <Input type="tel" defaultValue={employee.phone_number} required/>
+                <label className="col-form-label">
+                  Phone <span className="text-danger">*</span>
+                </label>
+                <Input
+                  type="tel"
+                  defaultValue={employee.phone_number}
+                  required
+                />
               </FormGroup>
             </Col>
 

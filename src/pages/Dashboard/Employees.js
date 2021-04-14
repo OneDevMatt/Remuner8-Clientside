@@ -6,6 +6,7 @@ import PageHeader from 'components/Headers/PageHeader';
 import CustomButton from 'components/Custom-Buttons/Button';
 import SearchRow from 'components/Employees/Page/SearchRow';
 import Grid from 'components/Employees/Page/Grid';
+import LoaderRing from 'components/Loading/Loader';
 import EmployeeTable from 'components/Tables/EmployeeTable';
 import CustomModal from 'components/Modals/CustomModal';
 import DeleteModal from 'components/Modals/DeleteModal';
@@ -101,25 +102,31 @@ class Employees extends Component {
           <Switch>
             <Route
               path="/admin/employees/all"
-              render={() => (
-                <Grid
-                  loading={loading}
-                  employees={employees}
-                  toggleEditModal={this.handleEdit}
-                  toggleDeleteModal={this.toggleDeleteModal}
-                />
-              )}
+              render={() =>
+                !loading ? (
+                  <Grid
+                    employees={employees}
+                    toggleEditModal={this.handleEdit}
+                    toggleDeleteModal={this.toggleDeleteModal}
+                  />
+                ) : (
+                  <LoaderRing />
+                )
+              }
             />
             <Route
               path="/admin/employees/employees-list"
-              render={() => (
-                <EmployeeTable
-                  loading={loading}
-                  data={employees}
-                  onEdit={this.handleEdit}
-                  onDelete={this.toggleDeleteModal}
-                />
-              )}
+              render={() =>
+                !loading ? (
+                  <EmployeeTable
+                    data={employees}
+                    onEdit={this.handleEdit}
+                    onDelete={this.toggleDeleteModal}
+                  />
+                ) : (
+                  <LoaderRing />
+                )
+              }
             />
             <Route
               path="/admin/employees/profile"
@@ -128,7 +135,7 @@ class Employees extends Component {
             <Redirect exact from="/admin/employees" to="/admin/employees/all" />
           </Switch>
         </div>
-        
+
         <CustomModal
           label="Add Employee"
           isOpen={addModalOpen}

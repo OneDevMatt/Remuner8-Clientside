@@ -88,7 +88,6 @@ export default class JobDescription extends Component {
                   data={jobs}
                   onEdit={this.handleEdit}
                   onDelete={this.toggleDeleteModal}
-                  setFormData={this.setFormData}
                 />
               )}
             </Col>

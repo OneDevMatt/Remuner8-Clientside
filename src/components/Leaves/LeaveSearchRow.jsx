@@ -13,7 +13,9 @@ const LeaveSearchRow = () => {
   return (
     <Row className="mb-3 justify-content-around">
       <Col sm={6} md={5} lg={3} xl={2}>
-        <FormInput label="Employee Name" type="text" />
+        <FormGroup>
+          <FormInput label="Employee Name" type="text" />
+        </FormGroup>
       </Col>
       <Col sm={6} md={5} lg={4} xl={2}>
         <FormGroup>
@@ -25,20 +27,28 @@ const LeaveSearchRow = () => {
         </FormGroup>
       </Col>
       <Col sm={6} md={5} lg={4} xl={2}>
-        <SelectBox
-          focusLabel="Leave Status"
-          label="--Select--"
-          options={options}
-        ></SelectBox>
+        <FormGroup>
+          <SelectBox
+            focusLabel="Leave Status"
+            label="--Select--"
+            options={options}
+          />
+        </FormGroup>
       </Col>
       <Col sm={6} md={5} lg={3} xl={2}>
-        <DatePicker label="From" />
+        <FormGroup>
+          <DatePicker label="From" />
+        </FormGroup>
       </Col>
       <Col sm={6} md={5} lg={3} xl={2}>
-        <DatePicker label="To" />
+        <FormGroup>
+          <DatePicker label="To" />
+        </FormGroup>
       </Col>
       <Col sm={6} md={5} lg={2}>
-        <CustomButton className="btn btn-block">Search</CustomButton>
+        <FormGroup>
+          <CustomButton className="btn btn-block">Search</CustomButton>
+        </FormGroup>
       </Col>
     </Row>
   );

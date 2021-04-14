@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 
 import LoaderRing from 'components/Loading/Loader';
 import PageHeader from 'components/Headers/PageHeader';
@@ -8,10 +8,11 @@ import CustomButton from 'components/Custom-Buttons/Button';
 import CustomModal from 'components/Modals/CustomModal';
 
 import DeleteModal from 'components/Modals/DeleteModal';
-import LeaveSearchRow from 'components/Sidebar/LeaveSearchRow';
+import LeaveSearchRow from 'components/Leaves/LeaveSearchRow';
 import LeaveForm from 'components/Forms/Leave/LeaveForm';
 import LeaveTable from 'components/Tables/LeaveTable';
 import '../../assets/css/Leave.css';
+import LeaveStats from 'components/Leaves/LeaveStats';
 
 class Leaves extends Component {
   state = {
@@ -39,7 +40,7 @@ class Leaves extends Component {
     });
 
   mockUrl = 'https://6072ea32e4e0160017ddf097.mockapi.io/api/leaves';
-  //   url = 'https://localhost:44333/api/leaves';
+  url = 'https://localhost:44333/api/leaves';
 
   fetchLeaves = async () => {
     try {
@@ -82,32 +83,9 @@ class Leaves extends Component {
             }
           />
           <Row>
-            <Col md="3">
-              <div className="stats-info">
-                <h6>Today Presents</h6>
-                <h4>12 / 60</h4>
-              </div>
-            </Col>
-            <Col md="3">
-              <div className="stats-info">
-                <h6>Planned Leaves</h6>
-                <h4>8  <span>Today</span></h4>
-              </div>
-            </Col>
-            <Col md="3">
-              <div className="stats-info">
-                <h6>Unplanned Leaves</h6>
-                <h4>0 <span>Today</span></h4>
-              </div>
-            </Col>
-            <Col md="3">
-              <div className="stats-info">
-                <h6>Pending Requests</h6>
-                <h4>12</h4>
-              </div>
-            </Col>
+            <LeaveStats />
           </Row>
-          <br></br>
+          <br />
           <LeaveSearchRow />
           <Row>
             <Col md={12}>
@@ -118,11 +96,11 @@ class Leaves extends Component {
                   data={leaves}
                   onEdit={this.handleEdit}
                   onDelete={this.toggleDeleteModal}
-                  // setFormData={this.setFormData}
                 />
               )}
             </Col>
           </Row>
+
           <CustomModal
             label="Add Leave"
             isOpen={addModalOpen}
@@ -135,7 +113,10 @@ class Leaves extends Component {
             isOpen={editModalOpen}
             toggle={this.toggleEditModal}
           >
-            <LeaveForm data={this.state.formData} />
+            <LeaveForm
+              data={this.state.formData}
+              toggle={this.toggleAddModal}
+            />
           </CustomModal>
           <DeleteModal
             isOpen={deleteModalOpen}

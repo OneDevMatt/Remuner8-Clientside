@@ -47,6 +47,7 @@ export default class JobDescriptionTable extends Component {
   getPagedData = () => {
     const { data } = this.props;
     if (!data) return { totalCount: 0, data: null };
+
     const { pageSize, currentPage } = this.state;
     const pagedData = data && paginate(data, currentPage, pageSize);
 
