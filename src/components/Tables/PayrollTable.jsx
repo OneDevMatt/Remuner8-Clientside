@@ -11,7 +11,6 @@ import {
 import { formatDates } from 'utils/functions';
 
 import Avatar from 'components/Avatars/EmployeeAvatar';
-import CustomButton from 'components/Custom-Buttons/Button';
 import Table from 'components/Tables/Table';
 import TableInfo from 'components/Tables/TableInfo';
 import Pagination from 'components/Tables/Pagination';

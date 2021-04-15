@@ -9,7 +9,7 @@ const departmentOptions = [
   'Select Department',
   'Software Eng',
   'IT Management',
-  'Marketing',
+  'Marketing'
 ];
 
 const jobOptions = [
@@ -20,7 +20,7 @@ const jobOptions = [
   '.NET Developer'
 ];
 
-const EmployeeForm = ({ data, toggle, readOnly }) => {
+const EmployeeForm = ({ data, toggle, readOnly, onUpload, avatar }) => {
   const handleSubmit = e => {
     e.preventDefault();
     toggle();
@@ -73,6 +73,7 @@ const EmployeeForm = ({ data, toggle, readOnly }) => {
                 />
               </FormGroup>
             </Col>
+
             <Col sm={6}>
               <FormGroup>
                 <label className="col-form-label">
@@ -127,7 +128,12 @@ const EmployeeForm = ({ data, toggle, readOnly }) => {
           </>
         ))
       ) : (
-        <EmptyForm departments={departmentOptions} jobs={jobOptions} />
+        <EmptyForm
+          departments={departmentOptions}
+          jobs={jobOptions}
+          onUpload={onUpload}
+          avatar={avatar}
+        />
       )}
     </CustomForm>
   );

@@ -15,7 +15,7 @@ const getLineHeight = props =>
   props.focusLabel
     ? labelStyles
     : css`
-        line-height: 40px;
+        line-height: 35px;
       `;
 
 export const Select = styled.select`
@@ -28,7 +28,7 @@ export const Select = styled.select`
   position: absolute;
   width: 1px;
   white-space: nowrap;
-  height: 50px;
+  height: 43px;
   padding: 21px 12px 6px;
   ${getLineHeight}
 `;
@@ -52,7 +52,7 @@ export const SpanSingleSelect = styled.span`
   cursor: pointer;
   display: block;
   user-select: none;
-  height: 50px;
+  height: 45px;
   padding: 4px 0 6px;
   ${getSpanSelectStyles}
 `;
@@ -77,7 +77,7 @@ export const SpanSelectArrow = styled.span`
   height: 42px;
   right: 7px;
   position: absolute;
-  top: 3px;
+  top: 0;
   width: 20px;
 `;
 

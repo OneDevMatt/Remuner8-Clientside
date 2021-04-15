@@ -5,6 +5,11 @@ const mainReducer = (state, action) => {
 				...state,
 				token: action.payload,
 			};
+
+		case "UPLOAD_IMAGE":
+			return {
+				...state
+			}
 		default:
 			return state;
 	}

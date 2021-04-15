@@ -17,7 +17,7 @@ const DatePicker = ({ date, onChange, label, adjustLabel }) => {
         defaultValue={date ? getValidDate(date) : today}
         onChange={onChange}
         onClick={() => setTodaysDate(today)}
-        style={{ height: '51px' }}
+        //style={{ height: '51px' }}
       />
       <FocusLabel htmlFor="datepicker" adjustLabel={adjustLabel}>
         {label}

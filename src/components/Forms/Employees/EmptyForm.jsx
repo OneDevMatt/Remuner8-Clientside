@@ -9,6 +9,15 @@ const EmptyForm = props => {
       <Col sm={6}>
         <FormGroup>
           <label className="col-form-label">
+            Employee ID <span className="text-danger">*</span>
+          </label>
+          <Input required placeholder="FT-0001" />
+        </FormGroup>
+      </Col>
+
+      <Col sm={6}>
+        <FormGroup>
+          <label className="col-form-label">
             First Name <span className="text-danger">*</span>
           </label>
           <Input type="text" required />
@@ -27,7 +36,7 @@ const EmptyForm = props => {
       <Col sm={6}>
         <FormGroup>
           <label className="col-form-label">
-            Email <span className="text-danger">*</span>
+            Email Address <span className="text-danger">*</span>
           </label>
           <Input type="email" />
         </FormGroup>
@@ -36,11 +45,12 @@ const EmptyForm = props => {
       <Col sm={6}>
         <FormGroup>
           <label className="col-form-label">
-            Employee ID <span className="text-danger">*</span>
+            Phone Number <span className="text-danger">*</span>
           </label>
-          <Input type="text" required placeholder="FT-0001" />
+          <Input type="tel" placeholder="9876543210" />
         </FormGroup>
       </Col>
+
       <Col sm={6}>
         <FormGroup>
           <label className="col-form-label">
@@ -49,15 +59,6 @@ const EmptyForm = props => {
           <div className="cal-icon">
             <DatePicker />
           </div>
-        </FormGroup>
-      </Col>
-
-      <Col sm={6}>
-        <FormGroup>
-          <label className="col-form-label">
-            Phone <span className="text-danger">*</span>{' '}
-          </label>
-          <Input type="tel" placeholder="9876543210" />
         </FormGroup>
       </Col>
 

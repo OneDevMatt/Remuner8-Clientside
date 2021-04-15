@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { Button } from 'reactstrap';
 
+import DummyImage from 'assets/img/theme/adminImage.jfif';
+
 import PageHeader from 'components/Headers/PageHeader';
 import CustomButton from 'components/Custom-Buttons/Button';
 import SearchRow from 'components/Employees/Page/SearchRow';
@@ -18,6 +20,7 @@ class Employees extends Component {
     loading: true,
     formData: [],
     employees: [],
+    avatar: DummyImage,
     addModalOpen: false,
     editModalOpen: false,
     deleteModalOpen: false
@@ -26,9 +29,8 @@ class Employees extends Component {
   toggleAddModal = () =>
     this.setState({ addModalOpen: !this.state.addModalOpen });
 
-  toggleEditModal = () => {
+  toggleEditModal = () =>
     this.setState({ editModalOpen: !this.state.editModalOpen });
-  };
 
   toggleDeleteModal = () =>
     this.setState({ deleteModalOpen: !this.state.deleteModalOpen });
@@ -38,6 +40,17 @@ class Employees extends Component {
       formData: [object],
       editModalOpen: !this.state.editModalOpen
     });
+
+  handleImageUpload = event => {
+    const image = URL.createObjectURL(event.target.files[0]);
+    const formData = new FormData();
+    formData.append(
+      'myFile',
+      event.target.files[0],
+      event.target.files[0].name
+    );
+    this.setState({ avatar: image });
+  };
 
   fetchEmployees = async () => {
     try {
@@ -64,7 +77,8 @@ class Employees extends Component {
       employees,
       addModalOpen,
       editModalOpen,
-      deleteModalOpen
+      deleteModalOpen,
+      avatar
     } = this.state;
 
     const {
@@ -141,7 +155,11 @@ class Employees extends Component {
           isOpen={addModalOpen}
           toggle={this.toggleAddModal}
         >
-          <EmployeeForm toggle={this.toggleAddModal} />
+          <EmployeeForm
+            toggle={this.toggleAddModal}
+            avatar={avatar}
+            onUpload={this.handleImageUpload}
+          />
         </CustomModal>
 
         <CustomModal
