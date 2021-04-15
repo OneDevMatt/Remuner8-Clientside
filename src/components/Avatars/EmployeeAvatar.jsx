@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import DummyImage from 'assets/img/theme/team-1-800x800.jpg';
 
 const EmployeeAvatar = ({ employee }) => {
-  console.log(employee);
   return (
     <TableAvatar>
       <Avatar to="/admin/employees/profile">

@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
-import Header from 'components/Payroll/Header';
 
-import AddSalaryModal from 'components/Payroll/AddSalaryModal';
+import Header from 'components/Payroll/Header';
 import InputRow from 'components/Payroll/InputRow';
 import LoaderRing from 'components/Loading/Loader';
-import PageHeader from 'components/Headers/PageHeader';
+import PayrollTable from 'components/Tables/PayrollTable';
 import CustomModal from 'components/Modals/CustomModal';
 import DeleteModal from 'components/Modals/DeleteModal';
+import SalaryForm from 'components/Forms/Payroll/SalaryForm';
 import 'assets/css/page.styles.css';
 
 class Payroll extends Component {
   state = {
     loading: true,
     formData: [],
-    employees: [],
+    payroll: [],
     addModalOpen: false,
     editModalOpen: false,
     deleteModalOpen: false
@@ -34,8 +34,8 @@ class Payroll extends Component {
       formData: [object],
       editModalOpen: !this.state.editModalOpen
     });
-  mockUrl = 'https://6072ea32e4e0160017ddf097.mockapi.io/api/employeepayroll';
-  url = 'https://localhost:44333/api/timesheet';
+  mockUrl = 'https://6077e2b9e7f4f50017183301.mockapi.io/api/payroll';
+  url = 'https://localhost:44333/api/payroll';
 
   fetchEmployees = async () => {
     try {
@@ -43,7 +43,7 @@ class Payroll extends Component {
 
       if (response.ok) {
         const data = await response.json();
-        this.setState({ loading: false, employees: data });
+        this.setState({ loading: false, payroll: data });
       }
     } catch (error) {
       console.log(error);
@@ -57,34 +57,47 @@ class Payroll extends Component {
   render() {
     const {
       loading,
-      employees,
+      payroll,
       addModalOpen,
       editModalOpen,
-      deleteModalOpen
+      deleteModalOpen,
+      formData
     } = this.state;
 
+    const { history } = this.props;
     return (
       <div className="page-wrapper">
         <div className="content container-fluid">
           <Header toggleModal={this.toggleAddModal} />
           <InputRow />
+          <Row>
+            <Col md={12}>
+            {loading ? (
+              <LoaderRing />
+            ) : (
+              <PayrollTable
+                data={payroll}
+                onEdit={this.handleEdit}
+                onDelete={this.toggleDeleteModal}
+                history={history}
+              />
+            )}
+            </Col>
+          </Row>
         </div>
         <CustomModal
           label="Add Salary"
           isOpen={addModalOpen}
           toggle={this.toggleAddModal}
         >
-          {/* <TimesheetForm toggle={this.toggleAddModal} /> */}
+          <SalaryForm toggle={this.toggleAddModal} />
         </CustomModal>
         <CustomModal
           label="Edit Timesheet"
           isOpen={editModalOpen}
           toggle={this.toggleEditModal}
         >
-          {/* <DepartmentForm
-            data={this.state.formData}
-            toggle={this.toggleEditModal}
-          /> */}
+          <SalaryForm data={formData} toggle={this.toggleAddModal} />
         </CustomModal>
         <DeleteModal
           isOpen={deleteModalOpen}
@@ -97,44 +110,5 @@ class Payroll extends Component {
     );
   }
 }
- 
+
 export default Payroll;
-
-// const Payroll = () => {
-//   const [modalOpen, setModalState] = useState(false);
-//   const toggleModal = () => setModalState(!modalOpen);
-
-//   return (
-//     <div className="page-wrapper">
-//       <div className="content container-fluid">
-//         <Header toggleModal={toggleModal} />
-//         <InputRow />
-//       </div>
-//       <AddSalaryModal isOpen={modalOpen} toggleModal={toggleModal} />
-//       <CustomModal
-//         label="Add Timesheet"
-//         isOpen={addModalOpen}
-//         toggle={this.toggleAddModal}
-//       >
-//         <TimesheetForm toggle={this.toggleAddModal} />
-//       </CustomModal>
-//       <CustomModal
-//         label="Edit Timesheet"
-//         isOpen={editModalOpen}
-//         toggle={this.toggleEditModal}
-//       >
-//         <DepartmentForm
-//           data={this.state.formData}
-//           toggle={this.toggleEditModal}
-//         />
-//       </CustomModal>
-//       <DeleteModal
-//         isOpen={deleteModalOpen}
-//         toggle={this.toggleDeleteModal}
-//         label="Delete Department"
-//       >
-//         Are you sure you want to delete this department?
-//       </DeleteModal>
-//     </div>
-//   );
-// };

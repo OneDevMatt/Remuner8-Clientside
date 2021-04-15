@@ -39,7 +39,7 @@ class OvertimeTable extends Component {
       content: overtime => <OvertimeStatusButton status={overtime} />
     },
     {
-      path: 'arrovedBy',
+      path: 'approvedBy',
       label: 'Approved By',
       content: employee => <Avatar employee={employee} />
     },
@@ -54,6 +54,7 @@ class OvertimeTable extends Component {
       )
     }
   ];
+  
   formatDates = data =>
     data
       ? data.map(data => {

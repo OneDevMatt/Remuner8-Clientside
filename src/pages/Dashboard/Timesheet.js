@@ -4,7 +4,6 @@ import { Row, Col } from 'reactstrap';
 import LoaderRing from 'components/Loading/Loader';
 import PageHeader from 'components/Headers/PageHeader';
 import CustomButton from 'components/Custom-Buttons/Button';
-
 import CustomModal from 'components/Modals/CustomModal';
 import DepartmentForm from 'components/Forms/Department/DepartmentForm';
 import DeleteModal from 'components/Modals/DeleteModal';
@@ -95,7 +94,6 @@ class Timesheet extends Component {
                   data={departments}
                   onEdit={this.handleEdit}
                   onDelete={this.toggleDeleteModal}
-                  setFormData={this.setFormData}
                 />
               )}
             </Col>

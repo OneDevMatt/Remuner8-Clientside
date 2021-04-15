@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Button } from "reactstrap";
 
-const Button = styled.button`
+const CustomButton = styled(Button)`
   background-color: white;
   color: #1f1f1f;
   box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
@@ -12,4 +13,4 @@ const Button = styled.button`
   }
 `;
 
-export default Button;
+export default CustomButton;
