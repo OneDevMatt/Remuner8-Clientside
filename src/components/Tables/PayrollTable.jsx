@@ -8,7 +8,12 @@ import {
   handleSort,
   getPagedData
 } from 'utils/tableMethods';
-import { formatDates } from 'utils/functions';
+import {
+  formatDates,
+  calculateNet,
+  totalEarnings,
+  totalDeductions
+} from 'utils/functions';
 
 import Avatar from 'components/Avatars/EmployeeAvatar';
 import Table from 'components/Tables/Table';
@@ -16,10 +21,6 @@ import TableInfo from 'components/Tables/TableInfo';
 import Pagination from 'components/Tables/Pagination';
 import ActionToggle from 'components/Custom-Buttons/ActionToggle';
 import SelectTableLength from './SelectTableLength';
-
-const totalEarnings = () => null;
-const totalDeductions = () => null;
-const calculateNet = () => null;
 
 class PayrollTable extends Component {
   state = {
@@ -38,11 +39,16 @@ class PayrollTable extends Component {
     },
     { path: 'employeeId', label: 'Employee ID' },
     { path: 'joinDate', label: 'Join Date' },
-    { path: 'job', label: 'Role' },
+    { path: 'job', label: 'Job Description' },
     {
       path: 'salary',
       label: 'Salary',
-      content: payroll => calculateNet(payroll)
+      content: payroll => (
+        <>
+          &#8358;
+          {calculateNet(totalEarnings(payroll), totalDeductions(payroll))}
+        </>
+      )
     },
     {
       key: 'Payslip',
@@ -50,6 +56,7 @@ class PayrollTable extends Component {
       content: payroll => (
         <Button
           color="primary"
+          style={{ padding: '0.25rem 0.5rem' }}
           onClick={() => this.props.history.push('/admin/payslip')}
         >
           Generate Slip
@@ -59,9 +66,9 @@ class PayrollTable extends Component {
     {
       key: 'Action',
       label: 'Action',
-      content: overtime => (
+      content: payroll => (
         <ActionToggle
-          toggleEditModal={() => this.props.onEdit(overtime)}
+          toggleEditModal={() => this.props.onEdit(payroll)}
           toggleDeleteModal={this.props.onDelete}
         />
       )
@@ -77,6 +84,7 @@ class PayrollTable extends Component {
       currentPage
     );
     const formattedPayroll = formatDates(payroll, 'dateJoined');
+
     return (
       <div className="table-wrapper">
         <Table

@@ -29,3 +29,18 @@ export const formatDates = (data, path) => {
 
   return newData;
 };
+
+// Payroll
+export const totalEarnings = ({
+  basic,
+  housing,
+  transport,
+  otherAllowance,
+  medical
+}) => +basic + +housing + +transport + +medical + +otherAllowance;
+
+export const totalDeductions = ({ tax, pension, otherDeduction }) =>
+  +tax + +pension + +otherDeduction;
+
+export const calculateNet = (totalEarnings, totalDeductions) =>
+  (totalEarnings - totalDeductions).toFixed(2);

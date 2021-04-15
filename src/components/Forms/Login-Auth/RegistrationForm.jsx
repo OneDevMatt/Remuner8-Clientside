@@ -150,7 +150,7 @@ class RegistrationForm extends Component {
           break;
       }
     } catch (error) {
-      swal(error, 'Something happened!', 'error');
+      swal(error.message, 'Something happened!', 'error');
       console.log(error);
     }
   };

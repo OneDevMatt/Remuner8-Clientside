@@ -93,7 +93,7 @@ class Payroll extends Component {
           <SalaryForm toggle={this.toggleAddModal} />
         </CustomModal>
         <CustomModal
-          label="Edit Timesheet"
+          label="Edit Salary"
           isOpen={editModalOpen}
           toggle={this.toggleEditModal}
         >

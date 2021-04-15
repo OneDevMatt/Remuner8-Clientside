@@ -37,7 +37,7 @@ const SalaryForm = ({ data, toggle }) => {
                   <Label>Basic</Label>
                   <Input
                     type="text"
-                    defaultValue={employee.basicSalary}
+                    defaultValue={employee.basic}
                     required
                   />
                 </FormGroup>
@@ -46,7 +46,7 @@ const SalaryForm = ({ data, toggle }) => {
                   <Label>Housing</Label>
                   <Input
                     type="text"
-                    defaultValue={employee.housingAllowance}
+                    defaultValue={employee.housing}
                     required
                   />
                 </FormGroup>
@@ -55,7 +55,7 @@ const SalaryForm = ({ data, toggle }) => {
                   <Label>Transport</Label>
                   <Input
                     type="text"
-                    defaultValue={employee.transportAllowance}
+                    defaultValue={employee.transport}
                     required
                   />
                 </FormGroup>
@@ -64,7 +64,7 @@ const SalaryForm = ({ data, toggle }) => {
                   <Label>Medical Allowance</Label>
                   <Input
                     type="text"
-                    defaultValue={employee.medicalAllowance}
+                    defaultValue={employee.medical}
                     required
                   />
                 </FormGroup>
@@ -80,14 +80,12 @@ const SalaryForm = ({ data, toggle }) => {
                 </a>
               </div> */}
               </Col>
-            </Row>
 
-            <Row>
               <Col sm={6}>
                 <h4 className="text-primary">Deductions</h4>
                 <FormGroup>
                   <Label>T.D.S</Label>
-                  <Input type="text" defaultValue={employee.paye} />
+                  <Input type="text" defaultValue={employee.tax} />
                 </FormGroup>
 
                 <FormGroup>
@@ -100,11 +98,11 @@ const SalaryForm = ({ data, toggle }) => {
                   <Input type="text" defaultValue={employee.loan} />
                 </FormGroup>
 
-                <FormGroup>
+                {/* <FormGroup>
                   <Label>Leave</Label>
                   <Input type="text" defaultValue={employee.leave} />
-                </FormGroup>
-                {/* <FormGroup>
+                </FormGroup> 
+               <FormGroup>
                 <Label>Prof. Tax</Label>
                 <Input type="text" />
               </FormGroup>
@@ -116,14 +114,9 @@ const SalaryForm = ({ data, toggle }) => {
                   <Label>Others</Label>
                   <Input type="text" defaultValue={employee.otherDeduction} />
                 </FormGroup>
-                {/* <div className="add-more">
-                <button>
-                  <i className="fa fa-plus-circle"></i> Add More
-                </button>
-              </div> */}
               </Col>
             </Row>
-            
+
             <Row className="justify-content-center">
               <Button
                 color="primary"

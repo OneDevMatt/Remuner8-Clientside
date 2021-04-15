@@ -81,7 +81,9 @@ class LoginForm extends Component {
         this.setState({ loading: false }, () => swal(backendResponse.message));
       }
     } catch (error) {
-      swal(error.message, 'Something happened!', 'error');
+      this.setState({ loading: false }, () =>
+        swal(error.message, 'Something happened!', 'error')
+      );
       console.log(error);
     }
   };

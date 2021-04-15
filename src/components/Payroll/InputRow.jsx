@@ -11,11 +11,13 @@ const roleOptions = ['Employee', 'Manager'];
 
 const InputRow = () => {
   return (
-    <Row className="mb-3 justify-content-around">
-      <Col sm={6} md={5} lg={3} xl={2}>
+    <Row className="mb-3">
+
+      <Col xs={12} sm={6} md={3} lg={4} xl={2}>
         <FormInput label="Employee Name" type="text" />
       </Col>
-      <Col sm={6} md={5} lg={3} xl={2}>
+
+      <Col xs={12} sm={6} md={3} lg={4} xl={2}>
         <FormGroup>
           <SelectBox
             focusLabel="Job Description"
@@ -24,27 +26,30 @@ const InputRow = () => {
           />
         </FormGroup>
       </Col>
-      <Col sm={6} md={5} lg={3} xl={3}>
+
+      <Col xs={12} sm={6} md={3} lg={4} xl={3}>
         <FormGroup>
-        <SelectBox
-          focusLabel="Leave Type"
-          label="Select Leave Type"
-          options={options}
-          adjustLabel
-        />
+          <SelectBox
+            focusLabel="Leave Status"
+            label="--Select--"
+            options={options}
+          />
         </FormGroup>
       </Col>
-      <Col sm={6} md={5} lg={3} xl={3}>
+
+      <Col xs={12} sm={6} md={3} lg={4} xl={3}>
         <FormGroup>
           <DatePicker label="From" />
         </FormGroup>
       </Col>
-      <Col sm={6} md={5} lg={3} xl={3}>
+
+      <Col xs={12} sm={6} md={3} lg={4} xl={3}>
         <FormGroup>
           <DatePicker label="To" />
         </FormGroup>
       </Col>
-      <Col sm={6} md={5} lg={3} xl={2}>
+
+      <Col xs={12} sm={6} md={3} lg={4} xl={2}>
         <FormGroup>
           <CustomButton className="btn btn-block">Search</CustomButton>
         </FormGroup>
