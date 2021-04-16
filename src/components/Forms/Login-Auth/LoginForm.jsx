@@ -82,7 +82,7 @@ class LoginForm extends Component {
       }
     } catch (error) {
       this.setState({ loading: false }, () =>
-        swal(error.message, 'Something happened!', 'error')
+        swal(error.message, 'It appears you are offline', 'error')
       );
       console.log(error);
     }

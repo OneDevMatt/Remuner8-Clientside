@@ -7,9 +7,8 @@ import Payroll from 'pages/Dashboard/Payroll';
 import Leaves from 'pages/Dashboard/Leaves';
 import Overtime from 'pages/Dashboard/Overtime';
 import Timesheet from 'pages/Dashboard/Timesheet';
-import JobDescription from 'pages/Dashboard/JobDescription'
-
-import Custom404 from 'pages/404';
+import JobDescription from 'pages/Dashboard/JobDescription';
+import PayrollItems from 'pages/Dashboard/PayrollItems';
 
 const routes = [
   [
@@ -130,7 +129,7 @@ const routes = [
       path: '/payroll-items',
       name: 'Payroll Items',
       icon: 'fas fa-money-bill-alt text-blue',
-      component: Custom404,
+      component: PayrollItems,
       layout: '/admin'
     }
     // {
