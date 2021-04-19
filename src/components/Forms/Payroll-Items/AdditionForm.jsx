@@ -35,7 +35,7 @@ const AdditionForm = ({ data, toggle }) => {
         </Label>
         <SelectBox label="Select a category" options={categories} required />
       </FormGroup>
-
+ 
       <FormGroup>
         <Label>
           Amount <span className="text-danger">*</span>
