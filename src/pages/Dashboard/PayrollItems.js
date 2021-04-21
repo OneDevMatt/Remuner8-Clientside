@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, TabContent } from 'reactstrap';
+import swal from '@sweetalert/with-react';
 
 import PageHeader from 'components/Headers/PageHeader';
 import MenuTab from 'components/Tabs/MenuTab';
@@ -16,9 +17,8 @@ class PayrollItems extends Component {
     activeTab: '1'
   };
 
-  toggleTab = tab => {
-    if (this.state.activeTab !== tab) this.setState({ activeTab: tab });
-  };
+  toggleTab = tab =>
+    this.state.activeTab !== tab && this.setState({ activeTab: tab });
 
   mockUrl = 'https://6077e2b9e7f4f50017183301.mockapi.io/api/payrollitems';
   url = 'https://localhost:44333/api/payrollItems';
@@ -33,7 +33,7 @@ class PayrollItems extends Component {
         this.setState({ loading: false, payrollItems: items });
       }
     } catch (error) {
-      console.log(error);
+      swal({ text: error.message, title: 'An Error occurred', icon: 'error' });
     }
   };
 
@@ -54,7 +54,7 @@ class PayrollItems extends Component {
       <div className="page-wrapper">
         <div className="content container-fluid">
           <PageHeader breadcrumb="Payroll Items" />
-          <div className="page-menu">
+          <div className="page-menu px-lg-4">
             <Row>
               <Col sm={12}>
                 <MenuTab activeTab={activeTab} toggle={this.toggleTab} />
@@ -62,7 +62,7 @@ class PayrollItems extends Component {
             </Row>
           </div>
 
-          <TabContent activeTab={activeTab}>
+          <TabContent activeTab={activeTab} className="px-lg-4">
             <AdditionsTab
               tabId="1"
               id="tab_additions"
