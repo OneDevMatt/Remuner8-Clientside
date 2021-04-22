@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { TabPane, Card } from 'reactstrap';
+
 import CustomButton from 'components/Custom-Buttons/Button';
 import PayrollAdditionItems from 'components/Tables/PayrollAdditionItemsTable';
 import CustomModal from 'components/Modals/CustomModal';
 import DeleteModal from 'components/Modals/DeleteModal';
 import AdditionForm from 'components/Forms/Payroll-Items/AdditionForm';
 
-const AdditionsTab = ({ loading, items, ...props }) => {
+const AdditionsTab = ({ items, ...props }) => {
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);

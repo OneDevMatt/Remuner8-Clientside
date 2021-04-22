@@ -10,17 +10,17 @@ import {
 } from 'reactstrap';
 import SelectBox from '../SelectBox';
 
-const categories = ['Monthly remuneration', 'Additional Remuneration'];
 
 const employees = ['John Doe', 'Woro Master'];
 
-const AdditionForm = ({ data, toggle }) => {
+const DeductionForm = ({ data, toggle }) => {
   const handleSubmit = e => {
     e.preventDefault();
     toggle();
   };
 
-  const getParsedAmount = amount => amount && amount.replace(",", "").split('.')[0];
+  const getParsedAmount = amount =>
+    amount && amount.replace(',', '').split('.')[0];
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -29,18 +29,6 @@ const AdditionForm = ({ data, toggle }) => {
           Name <span className="text-danger">*</span>
         </Label>
         <Input type="text" defaultValue={data && data[0].name} required />
-      </FormGroup>
-
-      <FormGroup>
-        <Label>
-          Category <span className="text-danger">*</span>
-        </Label>
-        <SelectBox
-          label="Select a category"
-          options={categories}
-          defaultValue={data && data[0].category}
-          required
-        />
       </FormGroup>
 
       <FormGroup>
@@ -97,4 +85,4 @@ const AdditionForm = ({ data, toggle }) => {
   );
 };
 
-export default AdditionForm;
+export default DeductionForm;

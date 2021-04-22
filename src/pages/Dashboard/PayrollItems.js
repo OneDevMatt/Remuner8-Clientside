@@ -7,8 +7,6 @@ import MenuTab from 'components/Tabs/MenuTab';
 import AdditionsTab from 'components/Tabs/AdditionsTab';
 import OvertimeTab from 'components/Tabs/OvertimeTab';
 import DeductionsTab from 'components/Tabs/DeductionsTab';
-import CustomModal from 'components/Modals/CustomModal';
-import DeleteModal from 'components/Modals/DeleteModal';
 
 class PayrollItems extends Component {
   state = {
@@ -42,13 +40,7 @@ class PayrollItems extends Component {
   }
 
   render() {
-    const {
-      payrollItems,
-      activeTab,
-      addModalOpen,
-      editModalOpen,
-      deleteModalOpen
-    } = this.state;
+    const { payrollItems, activeTab } = this.state;
 
     return (
       <div className="page-wrapper">
@@ -79,28 +71,6 @@ class PayrollItems extends Component {
               items={payrollItems && payrollItems.deductions}
             />
           </TabContent>
-
-          <CustomModal
-            label="Add Addition"
-            isOpen={addModalOpen}
-            toggle={this.toggleAddModal}
-          >
-            {/* <OvertimeForm toggle={this.toggleAddModal} /> */}
-          </CustomModal>
-          <CustomModal
-            label="Edit Addition"
-            isOpen={editModalOpen}
-            toggle={this.toggleEditModal}
-          >
-            {/* <OvertimeForm data={this.state.formData} /> */}
-          </CustomModal>
-          <DeleteModal
-            isOpen={deleteModalOpen}
-            toggle={this.toggleDeleteModal}
-            label="Delete Addition"
-          >
-            Are you sure you want to delete this item?
-          </DeleteModal>
         </div>
       </div>
     );

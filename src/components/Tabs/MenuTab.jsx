@@ -86,6 +86,7 @@ const NavTabItemLink = styled(NavLink)`
   border-radius: 0;
   font-size: 18px;
   color: white;
+  transition: none;
 
   &:hover {
     color: #0e1114;
